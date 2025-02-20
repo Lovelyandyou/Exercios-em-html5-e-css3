@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama Entidade-Relacionamento</title>
+    <style>
+        svg {
+            display: block;
+            margin: auto;
+            background-color: #f4f4f4;
+        }
+        rect {
+            fill: white;
+            stroke: black;
+            stroke-width: 2;
+        }
+        text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-anchor: middle;
+        }
+        line {
+            stroke: black;
+            stroke-width: 2;
+        }
+    </style>
+</head>
+<body>
+    <svg width="800" height="500">
+        <!-- Entidades -->
+        <rect x="50" y="50" width="120" height="50" />
+        <text x="110" y="80">Cliente</text>
+        
+        <rect x="300" y="50" width="120" height="50" />
+        <text x="360" y="80">Venda</text>
+        
+        <rect x="550" y="50" width="120" height="50" />
+        <text x="610" y="80">Vendedor</text>
+        
+        <rect x="300" y="200" width="120" height="50" />
+        <text x="360" y="230">Itens_Venda</text>
+        
+        <rect x="550" y="200" width="120" height="50" />
+        <text x="610" y="230">Produto</text>
+        
+        <rect x="550" y="350" width="120" height="50" />
+        <text x="610" y="380">Prateleira</text>
+
+        <!-- Relacionamentos -->
+        <line x1="170" y1="75" x2="300" y2="75" /> <!-- Cliente - Venda -->
+        <line x1="420" y1="75" x2="550" y2="75" /> <!-- Venda - Vendedor -->
+        <line x1="360" y1="100" x2="360" y2="200" /> <!-- Venda - Itens_Venda -->
+        <line x1="420" y1="225" x2="550" y2="225" /> <!-- Itens_Venda - Produto -->
+        <line x1="610" y1="250" x2="610" y2="350" /> <!-- Produto - Prateleira -->
+    </svg>
+</body>
+</html>
+[Cliente] (1)───(Faz)───(N) [Venda] (N)───(Contém)───(N) [Produto] (N)───(Está em)───(1) [Prateleira]
+                     │
+                     │(Efetuada por) (N)
+                     │
+                     (1)
+                  [Vendedor]
+
